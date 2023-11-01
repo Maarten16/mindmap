@@ -7,7 +7,7 @@ void printMap(node *root, int depth) {
     for (int i = 0; i < depth; i++) {
         std::cout << "  ";
     }
-    if(root->target = 1){
+    if(root->target == 1){
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         SetConsoleTextAttribute(hConsole, 9);
         std::cout << root->name << std::endl;

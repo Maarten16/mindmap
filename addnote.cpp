@@ -1,7 +1,6 @@
 #include "addnote.hpp"
 node* addNote(node* target, std::string name) {
     node *newNode = new node;
-    target->target = 0;
     target->children.push_back(newNode);
     newNode->name = name;
     newNode->parent = target;

@@ -20,6 +20,7 @@ int main() {
       if (GetKeyState('A') & 0x8000) {
           string name;
           cin >> name;
+          target->target = 0;
           target = addNote(target, name);
           printMap(&n1);
       }
