@@ -6,5 +6,5 @@ struct node {
     std::string description;
     std::vector<node *> children;
     node *parent;
-    bool target;
+    bool isTarget;
 };

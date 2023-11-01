@@ -4,4 +4,4 @@ project(mindmap)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(mindmap
-        main.cpp addnote.cpp addnote.hpp node.hpp printmap.cpp printmap.hpp)
+        main.cpp addNode.cpp addNode.hpp node.hpp printmap.cpp printmap.hpp moveTarget.cpp moveTarget.hpp)

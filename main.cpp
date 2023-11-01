@@ -5,14 +5,15 @@
 #include <windows.h>
 using namespace std;
 #include "node.hpp"
-#include "addnote.hpp"
+#include "addNode.hpp"
 #include "printmap.hpp"
+#include "moveTarget.hpp"
 
 int main() {
   node n1;
   n1.name = "base";
   node *target = &n1;
-  n1.target = 1;
+  n1.isTarget = 1;
   printMap(&n1);
   bool isRunning = true;
 
@@ -20,15 +21,17 @@ int main() {
       if (GetKeyState('A') & 0x8000) {
           string name;
           cin >> name;
-          target->target = 0;
+          target->isTarget = 0;
           target = addNote(target, name);
           printMap(&n1);
       }
       if (GetKeyState('L') & 0x8000) {
-          cout << "target left";
+          target = moveRight(target);
+          printMap(&n1);
       }
       if (GetKeyState('H') & 0x8000) {
-          cout << "target right";
+          target = moveLeft(target);
+          printMap(&n1);
       }
       if (GetKeyState('D') & 0x8000) {
           std::cout << "Delete target." << std::endl;
@@ -37,10 +40,12 @@ int main() {
           std::cout << "Edit target." << std::endl;
       }
       if (GetKeyState('J') & 0x8000) {
-          std::cout << "Move target down." << std::endl;
+          target = moveDown(target);
+          printMap(&n1);
       }
       if (GetKeyState('K') & 0x8000) {
-          std::cout << "Move target up." << std::endl;
+          target = moveUp(target);
+          printMap(&n1);
       }
       if (GetKeyState('N') & 0x8000) {
           std::cout << "Add note" << std::endl;
